@@ -70,7 +70,6 @@ Main.Data$PersonID <- sample(1000:5000, nrow(Main.Data), replace=F)
 Main.Data$CompanyName <- as.vector(randomStrings(n=nrow(Main.Data), len=5, digits=FALSE, upperalpha=TRUE,
                                                  loweralpha=FALSE, unique=FALSE, check=TRUE))
 Main.Data <- transform(Main.Data,CompanyID=as.numeric(factor(CompanyName)))
-#Main.Data$CompanyID <- sample(1000:5000, nrow(Main.Data), replace=F)
 Main.Data$Head.Of.Family <- sample(c("Yes","No"), nrow(Main.Data), replace=T)
 
 # Selecting Data Variables by names
