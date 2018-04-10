@@ -67,12 +67,11 @@ Main.Data <- transform(Main.Data,Country.ID=as.numeric(factor(Country)))
   #Adding Contry.ID as correspondent to Country
 Main.Data$No.Of.Family.Membs <- sample(1:8, size = nrow(Main.Data), replace = TRUE)
 Main.Data$PersonID <- sample(1000:5000, nrow(Main.Data), replace=F)
-Main.Data$CompanyID <- sample(1000:5000, nrow(Main.Data), replace=F)
-Main.Data$Head.Of.Family <- sample(c("Yes","No"), nrow(Main.Data), replace=T)
-
-#Main.Data <- Main.Data %>% mutate(NewRow = row_number())
 Main.Data$CompanyName <- as.vector(randomStrings(n=nrow(Main.Data), len=5, digits=FALSE, upperalpha=TRUE,
                                                  loweralpha=FALSE, unique=FALSE, check=TRUE))
+Main.Data <- transform(Main.Data,CompanyID=as.numeric(factor(CompanyName)))
+#Main.Data$CompanyID <- sample(1000:5000, nrow(Main.Data), replace=F)
+Main.Data$Head.Of.Family <- sample(c("Yes","No"), nrow(Main.Data), replace=T)
 
 # Selecting Data Variables by names
 Persons <- Main.Data[c("Timestamp","Age","Gender","self_employed","treatment","work_interfere",

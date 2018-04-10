@@ -120,7 +120,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">MainDataSet.R</h1>
 <h4 class="author"><em>Melchizedek_Levitz</em></h4>
-<h4 class="date"><em>Tue Apr 10 15:58:40 2018</em></h4>
+<h4 class="date"><em>Tue Apr 10 16:09:42 2018</em></h4>
 
 </div>
 
@@ -250,12 +250,11 @@ Main.Data &lt;- transform(Main.Data,Country.ID=as.numeric(factor(Country)))
   #Adding Contry.ID as correspondent to Country
 Main.Data$No.Of.Family.Membs &lt;- sample(1:8, size = nrow(Main.Data), replace = TRUE)
 Main.Data$PersonID &lt;- sample(1000:5000, nrow(Main.Data), replace=F)
-Main.Data$CompanyID &lt;- sample(1000:5000, nrow(Main.Data), replace=F)
-Main.Data$Head.Of.Family &lt;- sample(c(&quot;Yes&quot;,&quot;No&quot;), nrow(Main.Data), replace=T)
-
-#Main.Data &lt;- Main.Data %&gt;% mutate(NewRow = row_number())
 Main.Data$CompanyName &lt;- as.vector(randomStrings(n=nrow(Main.Data), len=5, digits=FALSE, upperalpha=TRUE,
                                                  loweralpha=FALSE, unique=FALSE, check=TRUE))
+Main.Data &lt;- transform(Main.Data,CompanyID=as.numeric(factor(CompanyName)))
+#Main.Data$CompanyID &lt;- sample(1000:5000, nrow(Main.Data), replace=F)
+Main.Data$Head.Of.Family &lt;- sample(c(&quot;Yes&quot;,&quot;No&quot;), nrow(Main.Data), replace=T)
 
 # Selecting Data Variables by names
 Persons &lt;- Main.Data[c(&quot;Timestamp&quot;,&quot;Age&quot;,&quot;Gender&quot;,&quot;self_employed&quot;,&quot;treatment&quot;,&quot;work_interfere&quot;,
