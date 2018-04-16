@@ -1,4 +1,4 @@
-"Timestamp" "family_history" "PersonID" "No.Of.Family.Membs" "Head.Of.Family"
+"Timestamp" "family_history" "PersonID" "No_Of_Family_Membs" "Head_Of_Family"
 "1" "8/27/14 11:29" "No" 1306 3 "Yes"
 "2" "8/27/14 11:29" "No" 1438 3 "No"
 "3" "8/27/14 11:29" "No" 4016 5 "Yes"

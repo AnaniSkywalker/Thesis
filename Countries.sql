@@ -1,4 +1,4 @@
-"Timestamp" "Country" "state" "Country.ID"
+"Timestamp" "Country" "state" "CountryID"
 "1" "8/27/14 11:29" "United States" "IL" 46
 "2" "8/27/14 11:29" "United States" "IN" 46
 "3" "8/27/14 11:29" "Canada" NA 8

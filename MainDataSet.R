@@ -58,29 +58,29 @@ setWorkDir()
 getwd()
 
 # Loading the dataset
-Main.Data <- read.csv("survey.csv", header =T, sep =",")
+Main_Data <- read.csv("survey.csv", header =T, sep =",")
 
 # Adding New Data Variables
 set.seed(1)
   #Adding Contry.ID as correspondent to Country
-Main.Data <- transform(Main.Data,Country.ID=as.numeric(factor(Country)))
+Main_Data <- transform(Main_Data,CountryID=as.numeric(factor(Country)))
   #Adding Contry.ID as correspondent to Country
-Main.Data$No.Of.Family.Membs <- sample(1:8, size = nrow(Main.Data), replace = TRUE)
-Main.Data$PersonID <- sample(1000:5000, nrow(Main.Data), replace=F)
-Main.Data$CompanyName <- as.vector(randomStrings(n=nrow(Main.Data), len=5, digits=FALSE, upperalpha=TRUE,
+Main_Data$No_Of_Family_Membs <- sample(1:8, size = nrow(Main_Data), replace = TRUE)
+Main_Data$PersonID <- sample(1000:5000, nrow(Main_Data), replace=F)
+Main_Data$CompanyName <- as.vector(randomStrings(n=nrow(Main_Data), len=5, digits=FALSE, upperalpha=TRUE,
                                                  loweralpha=FALSE, unique=FALSE, check=TRUE))
-Main.Data <- transform(Main.Data,CompanyID=as.numeric(factor(CompanyName)))
-Main.Data$Head.Of.Family <- sample(c("Yes","No"), nrow(Main.Data), replace=T)
+Main_Data <- transform(Main_Data,CompanyID=as.numeric(factor(CompanyName)))
+Main_Data$Head_Of_Family <- sample(c("Yes","No"), nrow(Main_Data), replace=T)
 
 # Selecting Data Variables by names
-Persons <- Main.Data[c("Timestamp","Age","Gender","self_employed","treatment","work_interfere",
+Persons <- Main_Data[c("Timestamp","Age","Gender","self_employed","treatment","work_interfere",
                        "tech_company","seek_help","anonymity","mental_health_consequence",
                        "phys_health_consequence","coworkers","supervisor","mental_health_interview",
                        "phys_health_interview","mental_vs_physical","obs_consequence","comments",
-                       "PersonID","CompanyID","Country.ID")]
-Countries <- Main.Data[c("Timestamp","Country","state","Country.ID")]
-FamilyInformation <- Main.Data[c("Timestamp","family_history","PersonID","No.Of.Family.Membs","Head.Of.Family")]
-CompanyInformation <- Main.Data[c("Timestamp","no_employees","remote_work","benefits","care_options",
+                       "PersonID","CompanyID","CountryID")]
+Countries <- Main_Data[c("Timestamp","Country","state","CountryID")]
+FamilyInformation <- Main_Data[c("Timestamp","family_history","PersonID","No_Of_Family_Membs","Head_Of_Family")]
+CompanyInformation <- Main_Data[c("Timestamp","no_employees","remote_work","benefits","care_options",
                                   "wellness_program","leave","CompanyName","Country","CompanyID")]
 
 write.csv(Persons, "Persons.csv", row.names =T)
