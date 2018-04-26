@@ -88,5 +88,10 @@ write.table(Countries, "Countries.sql", row.names =T)
 write.table(FamilyInformation, "FamilyInformation.txt", row.names =T)
 write.table(CompanyInformation, "CompanyInformation.xlsx", row.names =T)
 
-
-
+# Creating a New Data from modified Dataset
+NewMainData <- Main_Data
+columnNames <- as.array(colnames(NewMainData))
+NHH <- data.frame(rbind(as.matrix(NewMainData), as.matrix(NewMainData,nrow=nrow(NewMainData)*5,ncol=ncol(NewMainData))))
+MediumData <- rbind(NewMainData, NHH, stringsAsFactors=FALSE)
+MediumHighData <- rbind(NHH, MediumData, stringsAsFactors=FALSE)
+HighData <- rbind(MediumData, MediumHighData, stringsAsFactors=FALSE)
